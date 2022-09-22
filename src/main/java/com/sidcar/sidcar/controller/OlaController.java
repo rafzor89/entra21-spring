@@ -43,7 +43,7 @@ public class OlaController {
 		m.setQuantPorta(2);
 		f.setNome("Volkswagem");
 		f.setOrigem("Alemanha");
-		m.setFabricante(f);				
+						
 		return m;
 	}
 	

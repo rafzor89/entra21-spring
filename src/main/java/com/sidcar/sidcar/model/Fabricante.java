@@ -3,14 +3,17 @@ package com.sidcar.sidcar.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+
 
 @Entity
+//@Table(name="fabricante")
 public class Fabricante implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long seialVersionUID = 1L;
-
+	@Id
 	private Long id;
 	private String nome;
 	private String origem;
