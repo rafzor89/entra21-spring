@@ -72,5 +72,12 @@ public class FabricanteController {
 		Fabricante f = fabricanteRepository.findById(id).get();
 		return f;
 	}
+	
+	@GetMapping(value = "pesquisarFabricanteNome")
+	@ResponseBody
+	public ResponseEntity<List<Fabricante>>buscarFabricanteNacionalidade(@RequestParam(name="nacionalidade") String nacionalidade){
+		List<Fabricante> f = fabricanteRepository.findByNacionalidade(nacionalidade);
+		return new ResponseEntity<List<Fabricante>>(f, HttpStatus.OK);
+	}
 }
 
