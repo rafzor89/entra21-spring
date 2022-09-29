@@ -2,7 +2,10 @@ package com.sidcar.sidcar.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
@@ -14,9 +17,11 @@ public class Fabricante implements Serializable {
 	 */
 	private static final long seialVersionUID = 1L;
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(nullable = false, unique = true)
 	private String nome;
-	private String origem;
+	private String nacionalidade;
 	
 	
 	public Long getId() {
@@ -32,10 +37,10 @@ public class Fabricante implements Serializable {
 		this.nome = nome;
 	}
 	public String getOrigem() {
-		return origem;
+		return nacionalidade;
 	}
 	public void setOrigem(String origem) {
-		this.origem = origem;
+		this.nacionalidade = origem;
 	} 
 	
 	
