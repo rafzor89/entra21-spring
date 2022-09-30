@@ -3,6 +3,7 @@ package com.sidcar.sidcar.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.support.Repositories;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -78,6 +79,20 @@ public class FabricanteController {
 	public ResponseEntity<List<Fabricante>>buscarFabricanteNacionalidade(@RequestParam(name="nacionalidade") String nacionalidade){
 		List<Fabricante> f = fabricanteRepository.findByNacionalidade(nacionalidade);
 		return new ResponseEntity<List<Fabricante>>(f, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "buscarFabricanteNomeLike")
+	@ResponseBody
+	public ResponseEntity<List<Fabricante>>buscarFabricanteNomeLike(@RequestParam(name="nome") String nome){
+		List<Fabricante> f = fabricanteRepository.findByNomeLike(nome.trim().toUpperCase());
+		return new ResponseEntity<List<Fabricante>>(f, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "quantidadeFabricante")
+	@ResponseBody
+	public ResponseEntity<Integer> quantidadeFabricante(){
+		Integer quantidade = fabricanteRepository.quantidadeFabricante();
+		return new ResponseEntity<Integer>(quantidade, HttpStatus.OK);
 	}
 }
 
