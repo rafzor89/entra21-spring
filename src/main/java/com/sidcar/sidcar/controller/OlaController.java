@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sidcar.sidcar.model.Fabricante;
-import com.sidcar.sidcar.model.Modelo;
+import com.sidcar.sidcar.model.Veiculo;
 
 @RequestMapping(value="/ola", method = RequestMethod.GET)
 @RestController
@@ -35,12 +35,12 @@ public class OlaController {
 	}
 	
 	@RequestMapping(value = "/mundo/modelo", method = RequestMethod.GET)
-	public Modelo modelo(Modelo m, Fabricante f) {
+	public Veiculo modelo(Veiculo m, Fabricante f) {
 		m.setId((long)1);
 		m.setNome("Fusca");
 		m.setCor("Preto");
-		m.setAno(1969);
-		m.setQuantPorta(2);
+		m.setAnoModelo(1969);
+		m.setAnoFabricacao(1968);
 		f.setNome("Volkswagem");
 		f.setOrigem("Alemanha");
 						
